@@ -19,7 +19,7 @@ const ForgotPass = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn bg-slate-600" type="submit" value="Login" />
+                            <input className="btn bg-slate-600" type="submit" value="Update" />
                         </div>
 
                     </form>
