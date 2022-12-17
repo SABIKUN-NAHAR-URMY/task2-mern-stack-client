@@ -1,14 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import loginImg from '../../images/login.jpg';
 
 const Login = () => {
+    const users = useContext(AuthContext);
+    console.log(users);
+
+    const navigate = useNavigate();
+
     const handelLogin = event => {
         event.preventDefault();
         const form = event.target;
         const userName = form.userName.value;
         const password = form.password.value;
-        console.log(userName, password);
+        users.map(user => {
+            if(user?.userName === userName && user?.password === password){
+               return navigate('/');
+            }
+            // else{
+            //     return alert('Username and password not valid!!');
+            // }
+        })
     }
 
     
